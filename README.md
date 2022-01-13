@@ -1,2 +1,2 @@
-# skola_arduino_projekt
+# Škola arduino projekt
 Projekt na informatiku: Programovanie zariadenia do doácnosti
