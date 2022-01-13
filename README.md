@@ -1,2 +1,2 @@
 # Škola arduino projekt
-Projekt na informatiku: Programovanie zariadenia do doácnosti
+Projekt na informatiku: Programovanie zariadenia do domácnosti
