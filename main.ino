@@ -43,3 +43,5 @@ void loop() {
   last = current; // Nastavovanie terajšej hodnoty na predošlú
   delay(50); // Oneskorenie 50 ms
 }
+
+Daco pridane
