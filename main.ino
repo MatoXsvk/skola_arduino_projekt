@@ -2,9 +2,9 @@ int a;                                        // hodnota z fototranzistora
 int dsm = 50;                                 // dlzka spustenia motora
 int cakanie = 75;                             // cakanie, kym sa znova moze zaktivovat senzor
 int i = dsm + cakanie + 1;                    // Casovanie motora
-int motor = 13;                               //  |
-int FTN = A1;                                 //  Nastavovanie pinov
-int UV = A2;                                  //  |
+int motor = 13;                               // |
+int FTN = A1;                                 // Nastavovanie pinov
+int UV = A2;                                  // |
 int resetPin = 12;                            //  Nastavenie resetovacieho pinu
 int refreshArduinoTime = 30;                  // Cas resetovania arduina v min
 
