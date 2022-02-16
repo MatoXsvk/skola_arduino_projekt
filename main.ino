@@ -1,45 +1,22 @@
-// Pomenovavanie a nastavovanie pinov
-int led = 3;
-int sensor = A1;
-int motor = 4;
-int last = 0;
-int tolerancia = 1.4;
-int current, i;
-
-// Nastavovanie
 void setup() {
-  // Nastavovanie typu pinov
-  pinMode(led, OUTPUT);
-  pinMode(motor, OUTPUT);
-  pinMode(sensor, INPUT);
-  // Zapinanie LED
-  digitalWrite(led, HIGH);
-  // Zapinanie konzoly (v pravo hore lupa)
-  Serial.begin(9600);
-  // Vypinanie motoru
-  digitalWrite(motor, LOW);
+  pinMode(13,OUTPUT); //motor
+  pinMode(A2,OUTPUT); //UV LED
+  pinMode(A1,INPUT);  //fototranzistor
+  int a;              //hodnota z fototranzistora
+  Serial.begin(9600); //to nvm co robi
 }
 
-// Základný loop
 void loop() {
-  current = analogRead(sensor); // Získavania terajšej hodnoty na pine senzora
   
-  // Výpis hodnôt na konzolu
-  Serial.print("   Last: ");
-  Serial.println(last);
-  Serial.print("Current: ");
-  Serial.println(current);
-  
-  
-  // Udržovanie behu motora, zistovaním, či už prešlo *25 loopov 
-  if (i < 25) {
-    digitalWrite(motor, HIGH); // Zapinanie motora
-    i++; // Zvišovanie loop countu
-  } else { // Ak prešlo *25 loopov, tak sa motor vypne
-    digitalWrite(motor, LOW); // Vypínanie motoru
-  }
-  if (current * 1.1 < last) i = 0; // Spúšťanie počítania cykov (mohlo by byť aj pred if podmienkou
-  
-  last = current; // Nastavovanie terajšej hodnoty na predošlú
-  delay(50); // Oneskorenie 50 ms
+  int a;                    //znova lebo to nechcelo ist
+  delay(50);                //cas medzi meraniami(naj medzi 50-200)
+  digitalWrite(A2,0.05);    //spusti UV diodu
+  a = analogRead(A1);       //nacita hodnotu z fototranzistora
+  Serial.print("  a =  ");  //vypise hodnotu aby som vedel cca kolko mam dat do if
+  Serial.println(a);        //fototranz. znizi odpor na 0 ked je zopnutý / svieti nan UV svetlo
+  if(a>10){                 //ak bude rozdiel napati Uce = 0 tak moze byt aj a<1(rusenie)(cca 7-20)
+    digitalWrite(13,HIGH);  //zapne motor
+    delay(50);}             //chvilu ho necha zapnuty
+  else {
+    digitalWrite(13,LOW); } //vypne motor a pojde znovu
 }
