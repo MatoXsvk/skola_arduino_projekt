@@ -10,7 +10,7 @@ void loop() {
   digitalWrite(A2,0.05);    //spusti UV diodu
   a = analogRead(A1);       //nacita hodnotu z fototranzistora
   Serial.print("  i =  ");  //vypise hodnotu aby som vedel cca kolko mam dat do if
-  Serial.println(A1);       //fototranz. znizi odpor na 0 ked je zopnutý / svieti nan UV svetlo
+  Serial.println(a);       //fototranz. znizi odpor na 0 ked je zopnutý / svieti nan UV svetlo
   if(a<5){                  //ak bude rozdiel napati Uce = 0 tak moze byt aj a<1(rusenie)
     digitalWrite(13,HIGH);  //zapne motor
     delay(50);}            //chvilu ho necha zapnuty
